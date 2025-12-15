@@ -1,0 +1,291 @@
+{
+    "projects": [
+        {
+            "title": "Personal Portfolio Website (Flask & Bootstrap Stack)",
+            "description": "A fully functional, responsive personal portfolio website designed and developed from scratch to showcase technical projects, skills, this project highlights expertise in full-stack web development by combining Python-based Flask back-end logic with modern Bootstrap front-end design principles. The site manages routing, HTTP requests, app logic structuring, and renders dynamic content using Jinja templating. It also follows common MVC patterns, manages assets effectively, database connection updating databse, email notification, and features a mobile-first responsive design for seamless cross-device user experience.",
+            "date": "2024",
+            "icon": "fa-user-circle",
+            "icon_color": "text-info",
+            "card_color": "#17a2b8"
+        },
+        {
+            "title": "Interior Lighting Estimator (Streamlit App)",
+            "description": "Developed and deployed an interactive Streamlit web application that enables users to estimate optimal interior lighting setups for various room types. The tool uses user-inputted room dimensions, window properties, and color data to calculate area, volume, natural light factor, average reflectance, and required lumens using custom utilities and domain best practices. Visualization is handled by a dynamic, interactive 3D Plotly rendering of the room with fixture recommendations and light distribution cones. The platform computes efficient luminaire types with detailed cost and energy analysis, and also lets users export PDF reports. Features include intuitive sidebar navigation, advanced Plotly 3D visualization, customized lighting calculations, and automated PDF report generation for professional results.",
+            "date": "2024",
+            "icon": "fa-lightbulb-o",
+            "icon_color": "text-warning",
+            "card_color": "#ffd600"
+        },
+
+        {
+            "title": "\"Scrappy\" DIY Arduino CNC Pen Plotter",
+            "description": "A self-initiated engineering project centered around designing and constructing a low-cost, fully functional 2-axis CNC pen plotter using recycled materials like metals, cd driver and open-source electronics. The device translates digital G-code instructions into physical drawings to demonstrate practical embedded systems and automation skills, involving mechanical assembly of the frame from scrap materials, integration of Arduino Uno, CNC Shield v3, stepper motors from old cd driver, A4988 drivers, precise working of power and connections, programming of GRBL firmware for G-code execution from Inkscape.",
+            "date": "2023",
+            "icon": "fa-microchip",
+            "icon_color": "text-success",
+            "card_color": "#28a745"
+        },
+        {
+            "title": "Instagram Data Automation & Monitoring Script",
+            "description": "This project entailed developing a robust Python automation script using Selenium WebDriver and data logging library to monitor and log Instagram Stories, efficiently tracking celebritis posts. The script autonomously navigated Instagram interfaces, checks the stories of listed celebrities id in txt file, records posts, records timing, types of interaction, and logged all results systematically, greatly improving data collection efficiency and analytics while adhering to automation and data handling best practices, i made this to monitor the activities of celebs on perticular ocasional day to get what is their view on perticular thing.",
+            "date": "2022",
+            "icon": "fa-instagram",
+            "icon_color": "text-warning",
+            "card_color": "#ffc107"
+        },
+        {
+            "title": "Image_Sorting and Person Identification System",
+            "description": "This project involved implementing a computer vision system to classify and segregate images by identifying those containing a specific person, featured by advanced image processing for facial detection and alignment alongside a machine learning pipeline for identity recognition. Using Python, OpenCV for image processing, scikit-learn for model training/classification, and methods such as Haar cascades and the facial embeddings for detection, the project flows through image loading, preprocessing, feature extraction, model training, and robust evaluation, successfully achieving efficient and reliable identity-based image filtering.",
+            "date": "2022",
+            "icon": "fa-camera",
+            "icon_color": "text-danger",
+            "card_color": "#dc3545"
+        }
+    ],
+
+    "awards": [
+        {
+            "title": "samart india hackathon ",
+            "description": "Developed a practical image processing application designed to batch resize and optimize digital images for various use cases, primarily for web optimization (faster loading times) or fitting specific layout constraints (e.g., social media display, thumbnail generation). The solution focuses on delivering correctly dimensioned images while preserving visual quality and managing aspect ratios effectively. ",
+            "date": "2024",
+            "icon": "",
+            "icon_color": "",
+            "card_color": "#ffc107"
+        }
+    ],
+
+    "portfolio": [
+
+        {
+            "title": "Personal Portfolio Website",
+            "description": "A responsive Flask web app for showcasing projects, professional experience, and skills. Features include a customized dark/light themed design, rich project cards, and smooth animations.",
+            "image_url": "static/img/portfolio/portfolio-portfolio-website.jpg",
+            "category": "Web Development",
+            "project_url": "https://github.com/PiyushKalbande/portfolio-flask",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/portfolio-flask",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Flask, Bootstrap, Jinja, HTML5, CSS3"
+                },
+                {
+                    "label": "Live Demo",
+                    "url": "https://piyushkalbande-portfolio.com",
+                    "target": "_blank",
+                    "value": "Visit Website"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Web Development"
+                }
+            ]
+            
+        },
+
+        {
+            "title": "Interior Lighting Estimator (Streamlit App)",
+            "description": "Developed an interactive Streamlit web app for planning and optimizing interior lighting layouts. Features include room and window input, lighting calculations, 3D Plotly visualization, fixture suggestions, cost analysis, and exportable PDF reports.",
+            "image_url": "static/img/portfolio/lighting-sheme-planner-webapp.jpg",
+            "category": "Web Development",
+            "project_url": "https://github.com/PiyushKalbande/lightingSchemePlanner/tree/main/LightDesignCalc",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/lightingSchemePlanner/tree/main/LightDesignCalc",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Streamlit, Python, Plotly, PDF generation"
+                },
+                {
+                    "label": "Live Demo",
+                    "url": "https://lightingschemeplanner.streamlit.app/",
+                    "target": "_blank",
+                    "value": "Live here"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Web Development"
+                }
+            ]
+        },
+        {
+            "title": "DIY Arduino CNC Pen Plotter",
+            "description": "Engineered and built a 2-axis pen plotter with Arduino, CNC Shield, and recycled materials. Converted G-code into real-world pen drawings for automated art.",
+            "image_url": "static/img/portfolio/portfolio-cnc-plotter.jpg",
+            "category": "Electronics",
+            "project_url": "https://github.com/PiyushKalbande/arduino-cnc-plotter",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/arduino-cnc-plotter",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Arduino, CNC Shield, Stepper Motors, Recycled Materials"
+                },
+                {
+                    "label": "Project Demo",
+                    "url": "https://www.youtube.com/results?search_query=arduino+cnc+pen+plotter",
+                    "target": "_blank",
+                    "value": "Video Demonstration"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Electronics"
+                }
+            ]
+        },
+        {
+            "title": "Instagram Automation & Story Monitor",
+            "description": "Python and Selenium automation to log, monitor, and archive Instagram Story data for analytics. Handles detection, download, and logging to files.",
+            "image_url": "static/img/portfolio/portfolio-instagram-script.jpg",
+            "category": "Scripting",
+            "project_url": "https://github.com/PiyushKalbande/insta-story-monitor",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/insta-story-monitor",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Python, Selenium"
+                },
+                {
+                    "label": "Project Demo",
+                    "url": "https://youtu.be/UGN-DlsRlIA?si=lURbVxFpcf_g4Rzy",
+                    "target": "_blank",
+                    "value": "Video Demonstration"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Scripting"
+                },
+                {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/insta-story-monitor/blob/main/README.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
+                }
+            ]
+        },
+        {
+            "title": "Facial Recognition: Image Filtering System",
+            "description": "Computer vision pipeline in Python to segregate images by identifying a specific person using OpenCV and scikit-learn. Robust, fast, and practical result.",
+            "image_url": "static/img/portfolio/portfolio-image-segregation.jpg",
+            "category": "Machine Learning",
+            "project_url": "https://github.com/PiyushKalbande/Image_Sorter",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/Image_Sorter",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Python, OpenCV, scikit-learn"
+                },
+                {
+                    "label": "Project Demo",
+                    "url": "https://www.youtube.com/results?search_query=image+segregation+facial+recognition",
+                    "target": "_blank",
+                    "value": "Video Demonstration"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Machine Learning"
+                },
+                {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/Image_Sorter/blob/main/redeme.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
+                }
+            ]
+        }
+            
+    ],
+
+    "skills":[
+        {
+            "name": "Java",
+            "percentage": 80,
+            "icon": "devicon-java-plain colored"
+        },
+        {
+            "name": "Python Advanced",
+            "percentage": 90,
+            "icon": "devicon-python-plain colored"
+        },
+        {
+            "name": "Backend-Development (Flask, Django)",
+            "percentage": 85,
+            "icon": "devicon-flask-plain colored"
+        },
+        {
+            "name": "Frontend-development (HTML5, CSS3, JavaScript)",
+            "percentage": 80,
+            "icon": "devicon-devicon-plain colored"
+        },
+        {
+            "name": "jQuery",
+            "percentage": 50,
+            "icon": "devicon-jquery-plain colored"
+        },
+        {
+            "name": "SQL",
+            "percentage": 85,
+            "icon": "fa fa-database"
+        },
+
+        {
+            "name": "8051 Microcontroller Programming, Embedded C, C++ (basic)",
+            "percentage": 85,
+            "icon": "devicon-c-plain colored"
+        },
+
+        {
+            "name": "Arduino Uno, ESP32, Arduino IDE",
+            "percentage": 90,
+            "icon": "devicon-arduino-plain colored"
+        },
+
+        {
+            "name": "Circuit Designing(EASYEDA) & Physical Debugging",
+            "percentage": 85,
+            "icon": "fa fa-microchip"
+        }
+    ]
+}

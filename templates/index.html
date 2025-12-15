@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>Piyush Kalbande - Portfolio</title>
+
+    <!-- Global stylesheets -->
+  
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/devicons/css/devicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none  mx-0 px-0"><img src="{{ url_for('static', filename='img/logo-white.png') }}" alt="" class="img-fluid"></span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ url_for('static', filename='img/profile.jpg') }}" alt="">
+        </span>
+      </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+
+    <!--====================================================
+                        ABOUT
+    ======================================================-->
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+          <div class="my-auto" >
+              <img src="{{ url_for('static', filename='img/logo-s.png') }}" class="img-fluid mb-3" alt="">
+              <h1 class="mb-0">Piyush
+                <span class="text-primary">Kalbande</span>
+              </h1>
+              <div class="subheading mb-5">Where code meets creativity. See my projects and portfolio below.
+              </div>
+              <p class="mb-5" style="max-width: 500px;" >I don't just write code; I engineer solutions. Specializing in Web Development (Frontend/Backend), Python automation, and practical Hardware Integration. Bridging the digital and physical worlds one project at a time.</p>
+              <ul class="list-inline list-social-icons mb-0">
+                  <li class="list-inline-item">
+                      <a href="{{ social_links.facebook }}" target="_blank" rel="noopener noreferrer">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="{{ social_links.instagram }}" target="_blank" rel="noopener noreferrer">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="{{ social_links.linkedin }}" target="_blank" rel="noopener noreferrer">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="{{ social_links.github }}" target="_blank" rel="noopener noreferrer">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                  </li>
+              </ul>
+          </div>
+      </section>
+
+    <!--====================================================
+                        PROJECTS
+    ======================================================-->      
+      <section class="resume-section p-3 p-lg-5 " id="projects">
+          <div class="row my-auto">
+              <div class="col-12">
+                <h2 class="  text-center">Projects</h2>
+                <div class="mb-5 heading-border"></div>
+              </div>
+              {% for project in projects %}
+              <div class="resume-item col-md-6 col-sm-12">
+                <div class="card mx-0 p-4 mb-5" style="border-color: {{ project.card_color }}; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                  <div class="resume-content mr-auto">
+                      <h4 class="mb-3">
+                        <i class="fa {{ project.icon }} mr-3 {{ project.icon_color }}"></i> {{ project.title }}
+                      </h4>
+                      <p>{{ project.description }}</p>
+                  </div>
+                  <div class="resume-date text-md-right">
+                      <span class="text-primary">{{ project.date }}</span>
+                  </div>
+                </div>  
+              </div>
+              {% endfor %}
+          </div>
+      </section>
+
+    <!--====================================================
+                        PORTFOLIO
+    ======================================================-->      
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio"> 
+          <div class="row my-auto">
+              <div class="col-12">
+                <h2 class="text-center">Portfolio</h2>
+                <div class="mb-5 heading-border"></div>
+              </div>
+              <div class="col-md-12">
+                <div class="port-head-cont">
+                  <button class="btn btn-general btn-green filter-b" data-filter="all">All</button>
+                  {% set filters = [] %}
+                  {% for item in portfolio %}
+                    {% if item.category and item.category not in filters %}
+                      {% set _ = filters.append(item.category) %}
+                    {% endif %}
+                  {% endfor %}
+                  {% for filter in filters %}
+                    <button class="btn btn-general btn-green filter-b" data-filter="{{ filter|lower|replace(' ', '-') }}">
+                      {{ filter }}
+                    </button>
+                  {% endfor %}
+                </div>
+              </div>
+          </div>
+          <div class="row my-auto">
+              {% for item in portfolio %}
+              <div class="col-sm-4 portfolio-item filter {{ item.category|lower|replace(' ', '-') }}">
+                  <a class="portfolio-link" href="#portfolioModal{{ loop.index }}" data-toggle="modal">
+                      <div class="caption-port">
+                          <div class="caption-port-content">
+                              <i class="fa fa-search-plus fa-3x"></i>
+                          </div>
+                      </div>
+                      <img class="img-fluid" src="{{ item.image_url }}" alt="{{ item.title }}">
+                  </a>
+              </div>
+              {% endfor %}
+          </div>
+      </section>
+
+    <!--====================================================
+                        SKILLS
+    ======================================================-->       
+      <section class="d-flex flex-column" id="skills">
+         <div class="p-lg-5 p-3 skill-cover">
+          <h3 class="text-center text-white">Coding Skills</h3>
+          <div class="row text-center my-auto">
+              {% for skill in skills %}
+              <div class="col-md-3 col-sm-6">
+                  <div class="skill-item">
+                      <i class="{{ skill.icon }} fa-5x"></i>
+                      <h2><span class="counter">{{ skill.percentage }}</span><span>%</span></h2>
+                      <p>{{ skill.name }}</p>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+         </div>
+      </section>
+
+    <!--====================================================
+                           AWARDS
+    ======================================================-->       
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
+          <div class="row my-auto">
+              <div class="col-12">
+                <h2 class="text-center">Awards</h2>
+                <div class="mb-5 heading-border"></div>
+              </div> 
+              <div class="main-award" id="award-box">
+                  {% for award in award %}
+                    <div class="award" id="award-border" style="border-left: 1px solid {{ award.card_color }};">
+                      <div class="award-icon">
+                          <i class="fa {{ award.icon }} fa-2x {{ award.icon_color }}"></i>
+                      </div>
+                      <div class="award-content">
+                          <span class="date">{{ award.date }}</span>
+                          <h5 class="title">{{ award.title }}</h5>
+                          <p class="description">
+                              {{ award.description }}
+                          </p>
+                      </div>
+                    </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </section> 
+
+    <!--====================================================
+                          CONTACT
+    ======================================================-->       
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column">
+          <div class="row my-auto" id="contact"> 
+            <div class="col-md-8">
+              <div class="contact-cont">
+                <h3>CONTACT ME</h3>
+                <div class="heading-border-light"></div>
+                <p>Have a project in mind or want to collaborate? Feel free to reach out! I'm always open to discussing new opportunities and interesting projects.</p>
+              </div>
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <div class="mt-3">
+                    {% for category, message in messages %}
+                      <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+              <form method="POST" action="{{ url_for('contact') }}" class="row con-form">
+                <div class="col-md-12">
+                  <input type="text" name="full-name" placeholder="Full Name" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <input type="email" name="email" placeholder="Email Id" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <input type="text" name="subject" placeholder="Subject" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <textarea name="message" id="message" placeholder="Your Message" class="form-control" rows="5" required></textarea>
+                </div>
+                <div class="col-md-12 sub-but">
+                  <button type="submit" class="btn btn-general btn-white" role="button">Send</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-4 col-sm-12 mt-5"> 
+              <div class="contact-cont2"> 
+                <div class="contact-add contact-box-desc">
+                  <h3><i class="fa fa-map-marker cl-atlantis fa-2x"></i> Location</h3>
+                  <p>Katol, Maharashtra<br>
+                  India</p>
+                </div>
+                <div class="contact-mail contact-side-desc contact-box-desc">
+                  <h3><i class="fa fa-envelope-o cl-atlantis fa-2x"></i> Email</h3>
+                <address class="address-details-f"> 
+                  Email: <a href="mailto:{{ personal_email }}" class="">{{ personal_email }}</a>
+                </address>
+                <ul class="list-inline social-icon-f top-data">
+                  <li><a href="{{ social_links.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fa top-social fa-facebook" style="color: #4267b2; border-color:#4267b2;"></i></a></li>
+                  <li><a href="{{ social_links.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fa top-social fa-instagram" style="color: #E4405F; border-color:#E4405F;"></i></a></li>
+                  <li><a href="{{ social_links.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fa top-social fa-linkedin" style="color: #0077b5; border-color:#0077b5;"></i></a></li>
+                  <li><a href="{{ social_links.github }}" target="_blank" rel="noopener noreferrer"><i class="fa top-social fa-github" style="color: #333; border-color:#333;"></i></a></li>
+                </ul>
+                </div>
+              </div>
+            </div> 
+          </div>
+      </section>
+
+      <section class=" d-flex flex-column" id="maps">
+        <div id="map">
+          <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15307.360123908602!2d78.5835519843993!3d21.27553051810229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd459e058bc2ac3%3A0x76b28c42994be13a!2sKatol%20City%20Lake!5e0!3m2!1sen!2sus!4v1765295139253!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+<!--====================================================
+                    PORTFOLIO MODALS
+======================================================-->
+    {% for project in portfolio %}
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="modal-body">
+                <div class="title-bar">
+                  <div class="col-md-12">
+                    <h2 class="text-center">{{ project.title }}</h2>
+                    <div class="heading-border"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="img-fluid img-centered" src="{{ project.image_url }}" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{ project.description }}</p>
+                    <ul class="list-inline item-details">
+                      {% for detail in project.details %}
+                        <li>
+                          {{ detail.label }}:
+                          <strong>
+                            {% if detail.url %}
+                              <a href="{{ detail.url }}" {% if detail.target %}target="{{ detail.target }}"{% endif %}>
+                                {{ detail.value }}
+                              </a>
+                            {% else %}
+                              {{ detail.value }}
+                            {% endif %}
+                          </strong>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                      <i class="fa fa-times"></i> Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- Global javascript -->
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/counter/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/counter/jquery.counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+
+        $(".filter-b").click(function(){
+            var value = $(this).attr('data-filter');
+            if(value == "all")
+            { 
+                $('.filter').show('1000');
+            }
+            else
+            { 
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+            }
+        });
+        
+        if ($(".filter-b").removeClass("active")) {
+          $(this).removeClass("active");
+        }
+        $(this).addClass("active");
+        });
+
+        // SKILLS
+        $(function () {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 2000
+            });
+
+        });
+    </script> 
+</body>
+
+</html>
