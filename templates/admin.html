@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Saved Messages</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Submitted At</th>
+        </tr>
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg.id }}</td>
+            <td>{{ msg.name }}</td>
+            <td>{{ msg.email }}</td>
+            <td>{{ msg.subject }}</td>
+            <td>{{ msg.message }}</td>
+            <td>{{ msg.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Projects</h2>
+    <ul>
+        {% for p in projects %}
+        <li>{{ p }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Awards</h2>
+    <ul>
+        {% for a in awards %}
+        <li>{{ a }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Portfolio</h2>
+    <ul>
+        {% for item in portfolio %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+        {% for s in skills %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Social Links</h2>
+    <ul>
+        {% for key, link in social_links.items() %}
+        <li>{{ key }}: <a href="{{ link }}">{{ link }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Personal Email</h2>
+    <p>{{ personal_email }}</p>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

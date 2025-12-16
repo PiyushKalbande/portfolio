@@ -1,13 +1,9 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 from dotenv import load_dotenv
-import gspread
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import json
-import threading
-import traceback
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -15,29 +11,23 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
-# Safe private key handling
-private_key = os.getenv("GOOGLE_PRIVATE_KEY")
-if not private_key:
-    raise RuntimeError("GOOGLE_PRIVATE_KEY not set in environment!")
-private_key = private_key.replace("\\n", "\n")
+# Configure SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-service_info = {
-    "type": "service_account",
-    "project_id": os.getenv("GOOGLE_PROJECT_ID", ""),
-    "private_key_id": os.getenv("GOOGLE_PRIVATE_KEY_ID", ""),
-    "private_key": private_key,
-    "client_email": os.getenv("GOOGLE_CLIENT_EMAIL", ""),
-    "client_id": os.getenv("GOOGLE_CLIENT_ID", ""),
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": f"https://www.googleapis.com/robot/v1/metadata/x509/{os.getenv('GOOGLE_CLIENT_EMAIL','')}"
-}
+# Define table structure with timestamp
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    subject = db.Column(db.String(200), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-gc = gspread.service_account_from_dict(service_info)
-G_KEY = os.getenv('GOOGLE_SHEET_KEY')
-sh = gc.open_by_key(G_KEY)
-worksheet = sh.sheet1
+# Create tables
+with app.app_context():
+    db.create_all()
 
 # Social links
 SOCIAL_LINKS = {
@@ -47,10 +37,6 @@ SOCIAL_LINKS = {
     'facebook': os.getenv('SOCIAL_FACEBOOK', '#')
 }
 
-# Email config
-SOURCE_EMAIL = os.getenv('SOURCE_EMAIL')
-DESTINATION_EMAIL = os.getenv('DESTINATION_EMAIL')
-EMAIL_APP_PASSWORD = os.getenv('EMAIL_APP_PASSWORD')
 MY_PERSONAL_EMAIL = os.getenv('MY_PERSONAL_EMAIL')
 
 # Load project config
@@ -66,43 +52,12 @@ def index():
     return render_template(
         "index.html",
         social_links=SOCIAL_LINKS,
-        destination_email=DESTINATION_EMAIL,
         personal_email=MY_PERSONAL_EMAIL,
         projects=PROJECTS,
         award=AWARDS,
         portfolio=PORTFOLIO,
         skills=skills
     )
-
-def send_email_and_log(name, email, subject, message):
-    """Background task: send email + log to sheet"""
-    try:
-        msg = MIMEMultipart()
-        msg['From'] = SOURCE_EMAIL
-        msg['To'] = DESTINATION_EMAIL
-        msg['Subject'] = f"Portfolio Contact: {subject}"
-
-        body = f"""
-        New contact form submission:
-
-        Name: {name}
-        Email: {email}
-        Subject: {subject}
-
-        Message:
-        {message}
-        """
-        msg.attach(MIMEText(body, 'plain'))
-
-        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=20)
-        server.starttls()
-        server.login(SOURCE_EMAIL, EMAIL_APP_PASSWORD.strip())
-        server.sendmail(SOURCE_EMAIL, DESTINATION_EMAIL, msg.as_string())
-        server.quit()
-
-        worksheet.append_row([name, email, subject, message])
-    except Exception as e:
-        app.logger.error(f"Background task error: {e}\n{traceback.format_exc()}")
 
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -120,19 +75,56 @@ def contact():
             flash('Please enter a valid email address.', 'error')
             return redirect(url_for('index') + '#contact')
 
-        # ✅ Immediate response
-        flash('Thanks! Your message is being processed.', 'success')
-        response = redirect(url_for('index') + '#contact')
+        new_msg = Message(name=name, email=email, subject=subject, message=message)
+        db.session.add(new_msg)
+        db.session.commit()
 
-        # ✅ Background thread for heavy work
-        threading.Thread(target=send_email_and_log, args=(name, email, subject, message)).start()
-
-        return response
+        flash('Thank you! Your message has been saved successfully.', 'success')
 
     except Exception as e:
-        app.logger.error(f"Contact form error: {e}\n{traceback.format_exc()}")
-        flash('Sorry, there was an error processing your request.', 'error')
-        return redirect(url_for('index') + '#contact')
+        app.logger.error(f"Contact form error: {e}")
+        flash('Sorry, there was an error saving your message.', 'error')
+
+    return redirect(url_for('index') + '#contact')
+
+# ✅ Admin login route
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        password = request.form.get("password")
+        if password == os.getenv("ADMIN_PASSWORD"):
+            session["admin_logged_in"] = True
+            return redirect(url_for("admin"))
+        else:
+            flash("Invalid password", "error")
+            return redirect(url_for("login"))
+    return render_template("login.html")
+
+# ✅ Admin page (protected)
+@app.route("/admin")
+def admin():
+    if not session.get("admin_logged_in"):
+        flash("Please log in to access admin page", "error")
+        return redirect(url_for("login"))
+
+    messages = Message.query.order_by(Message.created_at.desc()).all()
+    return render_template(
+        "admin.html",
+        messages=messages,
+        projects=PROJECTS,
+        awards=AWARDS,
+        portfolio=PORTFOLIO,
+        skills=skills,
+        social_links=SOCIAL_LINKS,
+        personal_email=MY_PERSONAL_EMAIL
+    )
+
+# ✅ Logout route
+@app.route("/logout")
+def logout():
+    session.pop("admin_logged_in", None)
+    flash("Logged out successfully", "success")
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run()
