@@ -42,20 +42,10 @@ SOCIAL_LINKS = {
 }
 
 # Email configuration
-# SOURCE_EMAIL = os.getenv('SOURCE_EMAIL')
-# DESTINATION_EMAIL = os.getenv('DESTINATION_EMAIL')
-# EMAIL_APP_PASSWORD = os.getenv('EMAIL_APP_PASSWORD')
+SOURCE_EMAIL = os.getenv('SOURCE_EMAIL')
+DESTINATION_EMAIL = os.getenv('DESTINATION_EMAIL')
+EMAIL_APP_PASSWORD = os.getenv('EMAIL_APP_PASSWORD')
 MY_PERSONAL_EMAIL= os.getenv('MY_PERSONAL_EMAIL')
-
-
-
-with open('/etc/secrets/gmail_service.json', 'r') as file: 
-    credentials = json.load(file) 
-    
-SOURCE_EMAIL = credentials["SOURCE_EMAIL"] 
-DESTINATION_EMAIL = credentials["DESTINATION_EMAIL"] 
-EMAIL_APP_PASSWORD = credentials["EMAIL_APP_PASSWORD"]
-
 
 
 with open('Project_Config.json', 'r') as f:
