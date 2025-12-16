@@ -48,8 +48,8 @@
             "title": "samart india hackathon ",
             "description": "Developed a practical image processing application designed to batch resize and optimize digital images for various use cases, primarily for web optimization (faster loading times) or fitting specific layout constraints (e.g., social media display, thumbnail generation). The solution focuses on delivering correctly dimensioned images while preserving visual quality and managing aspect ratios effectively. ",
             "date": "2024",
-            "icon": "",
-            "icon_color": "",
+            "icon": "fa-trophy",
+            "icon_color": "text-warning",
             "card_color": "#ffc107"
         }
     ],
