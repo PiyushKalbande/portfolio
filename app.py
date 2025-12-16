@@ -104,7 +104,6 @@ def login():
 @app.route("/admin")
 def admin():
     if not session.get("admin_logged_in"):
-        flash("Please log in to access admin page", "error")
         return redirect(url_for("login"))
 
     messages = Message.query.order_by(Message.created_at.desc()).all()
