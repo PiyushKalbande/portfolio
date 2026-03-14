@@ -9,6 +9,22 @@
             "card_color": "#17a2b8"
         },
         {
+            "title": "instagram media downloader web-app",
+            "description": "A Flask-based web application that enables users to download media content from Instagram posts, stories, and reels. The app utilizes the Instaloader library to fetch and download high-quality images and videos directly from Instagram URLs provided by users. It features a simple and intuitive interface for easy access to Instagram media downloads, and also it support downloading of single post, story, reel, IGTV videos as well as complete profile media downloads by entering the username or a post URL of a particular instagram account.",
+            "date": "2025",
+            "icon": "fa-instagram",
+            "icon_color": "text-danger",
+            "card_color": "#3f729b"
+        },
+        {
+            "title": "youtube to mp3/mp4 downloader web-app",
+            "description": "A simple web application that allows users to download YouTube videos as MP3 or MP4 files. Built using Flask for the backend and YouTube-DL library for handling video downloads and conversions. The app features a user-friendly interface where users can input a YouTube URL and select their desired format for download, making it easy to save favorite videos or music for offline access, with support for various video qualities and formats, including HD options, ensuring a versatile downloading experience, and also it includes error handling for invalid URLs or unsupported formats to enhance user experience.",
+            "date": "2025",
+            "icon": "fa-youtube",
+            "icon_color": "text-danger",
+            "card_color": "#ff0000"
+        },
+        {
             "title": "Interior Lighting Estimator (Streamlit App)",
             "description": "Developed and deployed an interactive Streamlit web application that enables users to estimate optimal interior lighting setups for various room types. The tool uses user-inputted room dimensions, window properties, and color data to calculate area, volume, natural light factor, average reflectance, and required lumens using custom utilities and domain best practices. Visualization is handled by a dynamic, interactive 3D Plotly rendering of the room with fixture recommendations and light distribution cones. The platform computes efficient luminaire types with detailed cost and energy analysis, and also lets users export PDF reports. Features include intuitive sidebar navigation, advanced Plotly 3D visualization, customized lighting calculations, and automated PDF report generation for professional results.",
             "date": "2024",
@@ -26,7 +42,7 @@
             "card_color": "#28a745"
         },
         {
-            "title": "Instagram Data Automation & Monitoring Script",
+            "title": "Instagram Automation & Monitoring Script",
             "description": "This project entailed developing a robust Python automation script using Selenium WebDriver and data logging library to monitor and log Instagram Stories, efficiently tracking celebritis posts. The script autonomously navigated Instagram interfaces, checks the stories of listed celebrities id in txt file, records posts, records timing, types of interaction, and logged all results systematically, greatly improving data collection efficiency and analytics while adhering to automation and data handling best practices, i made this to monitor the activities of celebs on perticular ocasional day to get what is their view on perticular thing.",
             "date": "2022",
             "icon": "fa-instagram",
@@ -43,17 +59,6 @@
         }
     ],
 
-    "awards": [
-        {
-            "title": "samart india hackathon ",
-            "description": "Developed a practical image processing application designed to batch resize and optimize digital images for various use cases, primarily for web optimization (faster loading times) or fitting specific layout constraints (e.g., social media display, thumbnail generation). The solution focuses on delivering correctly dimensioned images while preserving visual quality and managing aspect ratios effectively. ",
-            "date": "2024",
-            "icon": "fa-trophy",
-            "icon_color": "text-warning",
-            "card_color": "#ffc107"
-        }
-    ],
-
     "portfolio": [
 
         {
@@ -61,13 +66,19 @@
             "description": "A responsive Flask web app for showcasing projects, professional experience, and skills. Features include a customized dark/light themed design, rich project cards, and smooth animations.",
             "image_url": "static/img/portfolio/portfolio-portfolio-website.jpg",
             "category": "Web Development",
-            "project_url": "https://github.com/PiyushKalbande/portfolio-flask",
+            "project_url": "https://github.com/PiyushKalbande/portfolio",
             "details": [
                 {
                     "label": "Source Code",
-                    "url": "https://github.com/PiyushKalbande/portfolio-flask",
+                    "url": "https://github.com/PiyushKalbande/portfolio",
                     "target": "_blank",
                     "value": "GitHub Repository"
+                },
+                {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/portfolio/blob/main/README.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
                 },
                 {
                     "label": "Built With",
@@ -77,7 +88,7 @@
                 },
                 {
                     "label": "Live Demo",
-                    "url": "https://piyushkalbande-portfolio.com",
+                    "url": "https://piyushkalbande.onrender.com",
                     "target": "_blank",
                     "value": "Visit Website"
                 },
@@ -117,6 +128,12 @@
                     "value": "Live here"
                 },
                 {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/lightingSchemePlanner/blob/main/LightDesignCalc/README.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
+                },
+                {
                     "label": "Category",
                     "url": "",
                     "target": "",
@@ -145,7 +162,7 @@
                 },
                 {
                     "label": "Project Demo",
-                    "url": "https://www.youtube.com/results?search_query=arduino+cnc+pen+plotter",
+                    "url": "https://youtu.be/4XsmFfYE99U?si=4OQJAyRHN8uu3obo",
                     "target": "_blank",
                     "value": "Video Demonstration"
                 },
@@ -162,11 +179,11 @@
             "description": "Python and Selenium automation to log, monitor, and archive Instagram Story data for analytics. Handles detection, download, and logging to files.",
             "image_url": "static/img/portfolio/portfolio-instagram-script.jpg",
             "category": "Scripting",
-            "project_url": "https://github.com/PiyushKalbande/insta-story-monitor",
+            "project_url": "https://github.com/PiyushKalbande/python-selenium-instagram-automation",
             "details": [
                 {
                     "label": "Source Code",
-                    "url": "https://github.com/PiyushKalbande/insta-story-monitor",
+                    "url": "https://github.com/PiyushKalbande/python-selenium-instagram-automation",
                     "target": "_blank",
                     "value": "GitHub Repository"
                 },
@@ -190,7 +207,7 @@
                 },
                 {
                     "label": "Documentation",
-                    "url": "https://github.com/PiyushKalbande/insta-story-monitor/blob/main/README.md",
+                    "url": "https://github.com/PiyushKalbande/python-selenium-instagram-automation/blob/main/README.md",
                     "target": "_blank",
                     "value": "ReadMe Guide"
                 }
@@ -217,7 +234,7 @@
                 },
                 {
                     "label": "Project Demo",
-                    "url": "https://www.youtube.com/results?search_query=image+segregation+facial+recognition",
+                    "url": "https://youtu.be/OxqTN6DErVs?si=NxEcWEAnWoDqTwE3",
                     "target": "_blank",
                     "value": "Video Demonstration"
                 },
@@ -234,8 +251,91 @@
                     "value": "ReadMe Guide"
                 }
             ]
+        },
+        {
+            "title": "youtube to mp3/mp4 downloader web-app",
+            "description": "A simple web application that allows users to download YouTube videos as MP3 or MP4 files. Built using Flask for the backend and YouTube-DL library for handling video downloads and conversions. The app features a user-friendly interface where users can input a YouTube URL and select their desired format for download.",
+            "image_url": "static/img/portfolio/portfolio-youtube-downloader.jpg",
+            "category": "Web Development",
+            "project_url": "https://github.com/PiyushKalbande/Youtube-song-downloader",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/Youtube-song-downloader",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Python, Flask, YouTube-DL"
+                },
+                {
+                    "label": "Project Demo",
+                    "url": "https://youtu.be/CCvZHX0u2SY?si=Iq659FED1lTvjr86",
+                    "target": "_blank",
+                    "value": "Video Demonstration"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Web Development"
+                },
+                {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/Youtube-song-downloader/blob/main/README.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
+                },
+                {
+                    "label": "Live Demo",
+                    "url": "https://vibezone-r6r4.onrender.com/",
+                    "target": "_blank",
+                    "value": "Visit Website UI (clone locally for use)"
+                }
+            ]
+        },
+        {
+            "title": "instagram media downloader web-app",
+            "description": "A Flask-based web application that enables users to download media content from Instagram posts, stories, and reels. The app utilizes the Instaloader library to fetch and download high-quality images and videos directly from Instagram URLs provided by users. It features a simple and intuitive interface for easy access to Instagram media downloads.",
+            "image_url": "static/img/portfolio/portfolio-instagram-downloader.jpg",
+            "category": "Web Development",
+            "project_url": "https://github.com/PiyushKalbande/instagram-media-downloader",
+            "details": [
+                {
+                    "label": "Source Code",
+                    "url": "https://github.com/PiyushKalbande/instagram-media-downloader",
+                    "target": "_blank",
+                    "value": "GitHub Repository"
+                },
+                {
+                    "label": "Built With",
+                    "url": "",
+                    "target": "",
+                    "value": "Python, Flask, Instaloader"
+                },
+                {
+                    "label": "Project Demo",
+                    "url": "https://youtu.be/1sPo4ZiG0wU?si=W1c4r7e1Y_7f8FMh",
+                    "target": "_blank",
+                    "value": "Video Demonstration"
+                },
+                {
+                    "label": "Category",
+                    "url": "",
+                    "target": "",
+                    "value": "Web Development"
+                },
+                {
+                    "label": "Documentation",
+                    "url": "https://github.com/PiyushKalbande/instagram-media-downloader/blob/main/README.md",
+                    "target": "_blank",
+                    "value": "ReadMe Guide"
+                }
+            ]
         }
-            
     ],
 
     "skills":[

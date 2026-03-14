@@ -43,7 +43,6 @@ MY_PERSONAL_EMAIL = os.getenv('MY_PERSONAL_EMAIL')
 with open('Project_Config.json', 'r') as f:
     project_json = json.load(f)
     PROJECTS = project_json.get('projects', [])
-    AWARDS = project_json.get('awards', [])
     PORTFOLIO = project_json.get('portfolio', [])
     skills = project_json.get('skills', [])
 
@@ -54,7 +53,6 @@ def index():
         social_links=SOCIAL_LINKS,
         personal_email=MY_PERSONAL_EMAIL,
         projects=PROJECTS,
-        award=AWARDS,
         portfolio=PORTFOLIO,
         skills=skills
     )
@@ -111,7 +109,6 @@ def admin():
         "admin.html",
         messages=messages,
         projects=PROJECTS,
-        awards=AWARDS,
         portfolio=PORTFOLIO,
         skills=skills,
         social_links=SOCIAL_LINKS,

@@ -49,9 +49,6 @@
                     <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
             </ul>
@@ -183,7 +180,7 @@
     ======================================================-->       
       <section class="d-flex flex-column" id="skills">
          <div class="p-lg-5 p-3 skill-cover">
-          <h3 class="text-center text-white">Coding Skills</h3>
+          <h3 class="text-center text-white">Coding and Hardware Skills</h3>
           <div class="row text-center my-auto">
               {% for skill in skills %}
               <div class="col-md-3 col-sm-6">
@@ -197,34 +194,6 @@
           </div>
          </div>
       </section>
-
-    <!--====================================================
-                           AWARDS
-    ======================================================-->       
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-          <div class="row my-auto">
-              <div class="col-12">
-                <h2 class="text-center">Awards</h2>
-                <div class="mb-5 heading-border"></div>
-              </div> 
-              <div class="main-award" id="award-box">
-                  {% for award in award %}
-                    <div class="award" id="award-border" style="border-left: 1px solid {{ award.card_color }};">
-                      <div class="award-icon">
-                          <i class="fa {{ award.icon }} fa-2x {{ award.icon_color }}"></i>
-                      </div>
-                      <div class="award-content">
-                          <span class="date">{{ award.date }}</span>
-                          <h5 class="title">{{ award.title }}</h5>
-                          <p class="description">
-                              {{ award.description }}
-                          </p>
-                      </div>
-                    </div>
-                  {% endfor %}
-              </div>
-          </div>
-      </section> 
 
     <!--====================================================
                           CONTACT
